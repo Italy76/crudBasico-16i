@@ -38,18 +38,17 @@
           <article class="bg-light p-3 my-5">
             <h3>Cargar productos</h3>
             <hr />
-            <form >
+            <form id="formProducto">
               <div class="mb-3">
                 <label for="" class="form-label">Codigo</label>
                 <input
-                  id='codigo'
+                  id="codigo"
                   type="text"
                   class="form-control is-invalid"
                   placeholder="Ingresar un código"
                   required
-                  onblur="validarCampoRequerido(this)"
                   />
-  <!--onblur: valida cuando se saca el foco del campo del formulario.  onkeypress: valida cuando
+  <!--onblur="validarCampoRequerido(this)": valida cuando se saca el foco del campo del formulario.  onkeypress: valida cuando
   se oprime la tecla.  onchange: valida cuando se ha escrito y se da return.
 Se unsa el this en la función, para indicar que se refiere a este input. is-invalid activa la class
 invalid feedback. is-invalid se usa en javascript, no en html-->
@@ -68,7 +67,7 @@ invalid feedback. is-invalid se usa en javascript, no en html-->
               </div>
               <div class="mb-3">
                 <label for="" class="form-label">descripcion</label>
-                <input type="text" class="form-control"  />
+                <textarea name="descripcion" id="descripcion"class="form-control"></textarea>
               </div>
               <div class="mb-3">
                 <label for="" class="form-label">cantidad</label>
@@ -79,9 +78,12 @@ invalid feedback. is-invalid se usa en javascript, no en html-->
               </div>
               <div class="mb-3">
                 <label for="" class="form-label">URL</label>
-                <input type="text" class="form-control"  />
+                <input type="text" class="form-control" id="url"  />
               </div>
               <button class="btn btn-primary" type="submit">Guardar</button>
+              <div class="alert alert-danger mt-4 d-none" role="alert" id="msjAlerta">
+                debe completar todos los datos marcados
+              </div>
             </form>
           </article>
 
