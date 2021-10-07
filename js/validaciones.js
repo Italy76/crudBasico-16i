@@ -1,4 +1,4 @@
-function validarCampoRequerido(input) {
+export function validarCampoRequerido(input) {
   console.log(input);
   console.log(input.value);
   if (input.value.trim().length > 0 && input.value.trim().length >= 3) {
@@ -15,7 +15,7 @@ function validarCampoRequerido(input) {
   }
 }
 
-function validarNumeros(input) {
+export function validarNumeros(input) {
   // validar con expresiones regulares, que son un patrón.
   let patron = /^[0-9]{1,5}$/; // el ^ indica cantidad máxima y mínima; los  valores dentro de los []
   // indican que queremos usar exclusivamente caracteres numéricos.
@@ -30,7 +30,7 @@ function validarNumeros(input) {
   } // .test testea una variable, para ver si cumple con la función, o sea con la expresión regular.
 }
 
-function validarCodigo(input) {
+export function validarCodigo(input) {
   //Con input y textarea se usa el value, no el innerHtml!!
   // Validar que tenga al menos 3 caracteres
   if (input.value.trim() != "" && input.value.trim().length >= 3) {
@@ -47,7 +47,7 @@ function validarCodigo(input) {
   }
 }
 
-function validadURL(input) {
+ export function validadURL(input) {
   let patron = /^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$/; // En la página donde está esta expresión regular,
   // pegué una imagen cuyo url copié desde la página pexel.es. Así copio y pego acá la expresión.
   if (input.value.trim() != "" && patron.test(input.value.trim())) {
@@ -62,13 +62,14 @@ function validadURL(input) {
   }
 }
 
-function validarGeneral(e) {
+ export function validarGeneral() {  // se ha borrado la e porque ahora en admin.js es la función 
+  //validarProducto en manejador de evento submit del formulario, no es más validarGeneral.
   // Valida el submit, o sea todos los campos del formulario cuando se hace clic
   // en el botón guardar del formulario. El parámetro event (e) se escribe para capturar el objeto event.
-  e.preventDefault(); //el método .preventDefault() le dice al objeto event que no refresque la página
+  //e.preventDefault(); //el método .preventDefault() le dice al objeto event que no refresque la página
   // al hacer el submit para ver bien todas las validaciones.
   console.log("desde validar general");
-  console.log(e);
+  //console.log(e);
   let alerta = document.querySelector("#msjAlerta");   // traigo el id del alert que inserté en el código.
   if (
     validarCodigo(document.querySelector("#codigo")) &&
@@ -83,10 +84,12 @@ function validarGeneral(e) {
     console.log("validación correcta");
     alerta.className = "alert alert-danger mt-4 d-none" // Traigo en js también la característica de 
     //ocultar el alerta, par estar seguro de que funcione.
+    return true
   } else {
     console.log("validación errónea");
     alerta.className = "alert alert-danger mt-4" // En caso que algo falle, indico nuevamente el alert, pero
     // esta vez quiero que aparezca, por ello le saco de la clase el d-4.
+    return false
   }
 }
 
@@ -120,26 +123,26 @@ console.log(formulario);
 // llamada y actúe sobre el input producto. La función addEventListener agrega el manejador de eventos.
 
 
-producto.addEventListener("blur", () => {
-  validarCampoRequerido(producto);
-});
+//producto.addEventListener("blur", () => {
+//  validarCampoRequerido(producto);
+//});
 
-cantidad.addEventListener("blur", () => {
-  validarNumeros(cantidad);
-});
+//cantidad.addEventListener("blur", () => {
+ // validarNumeros(cantidad);
+//});
 
-descripcion.addEventListener("blur", () => {
-  validarCampoRequerido(descripcion);
-});
+//descripcion.addEventListener("blur", () => {
+  //validarCampoRequerido(descripcion);
+//});
 
-codigo.addEventListener("blur", () => {
-  validarCodigo(codigo);
-});
+//codigo.addEventListener("blur", () => {
+  //validarCodigo(codigo);
+//});
 
-url.addEventListener("blur", () => {
-  validadURL(url);
-});
+//url.addEventListener("blur", () => {
+ // validadURL(url);
+//});
 
-formulario.addEventListener("submit", validarGeneral); // En este caso usamos el evento submit y no blur,
-// y siendo la fución de validación una función SIN PARÁMETRO, se puede escribir en forma nomral sin flechay
+//formulario.addEventListener("submit", validarGeneral); // En este caso usamos el evento submit y no blur,
+// y siendo la fución de validación una función SIN PARÁMETRO, se puede escribir en forma normal sin flecha y
 // y sin paréntesis.

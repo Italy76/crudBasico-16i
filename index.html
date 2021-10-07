@@ -21,7 +21,7 @@
                 <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Admin</a>
+                <a class="nav-link" href="admin.html">Admin</a>
               </li>
                 </ul>
               </li>
@@ -35,66 +35,13 @@
         <section>
           <h1 class="display-3 text-center">Administrador productos</h1>
           <hr />
-          <article class="bg-light p-3 my-5">
-            <h3>Cargar productos</h3>
-            <hr />
-            <form id="formProducto">
-              <div class="mb-3">
-                <label for="" class="form-label">Codigo</label>
-                <input
-                  id="codigo"
-                  type="text"
-                  class="form-control is-invalid"
-                  placeholder="Ingresar un código"
-                  required
-                  />
-  <!--onblur="validarCampoRequerido(this)": valida cuando se saca el foco del campo del formulario.  onkeypress: valida cuando
-  se oprime la tecla.  onchange: valida cuando se ha escrito y se da return.
-Se unsa el this en la función, para indicar que se refiere a este input. is-invalid activa la class
-invalid feedback. is-invalid se usa en javascript, no en html-->
-                  <div class="invalid feedback">
-                    Este campo es obligatorio
-                  </div>
-              </div>
-              <div class="mb-3">
-                <label for="" class="form-label">Producto</label>
-                <input  id="producto" type="text" class="form-control" 
-                 placeholder="mouse logitech" required 
-                minlength="3" maxlength="35"/>
-                <div class="invalid feedback">
-                   Este campo es obligatorio
-                </div>
-              </div>
-              <div class="mb-3">
-                <label for="" class="form-label">descripcion</label>
-                <textarea name="descripcion" id="descripcion"class="form-control"></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="" class="form-label">cantidad</label>
-                <input type="number" class="form-control" id="cantidad" placeholder="ej: 5" />
-                <div class="invalid feedback">
-                  Este campo es obligatorio y la cantidad de caracteres debe ser entre 1 a 5
-               </div>
-              </div>
-              <div class="mb-3">
-                <label for="" class="form-label">URL</label>
-                <input type="text" class="form-control" id="url"  />
-              </div>
-              <button class="btn btn-primary" type="submit">Guardar</button>
-              <div class="alert alert-danger mt-4 d-none" role="alert" id="msjAlerta">
-                debe completar todos los datos marcados
-              </div>
-            </form>
-          </article>
-
+         
         </section>
+     
     </main>
-
     <footer>
-
-    </footer>
-       
+    </footer>    
 <script src="js/bootstrap.min.js"></script>
-<script src="js/validaciones.js"></script>
+<script src="js/admin.js"></script>
 </body>
 </html>
